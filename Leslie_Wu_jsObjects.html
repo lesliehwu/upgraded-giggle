@@ -1,0 +1,53 @@
+<script>
+//CHALLENGE 1
+let students = [
+    {name: 'Remy', cohort:'Jan'},
+    {name:'Genevieve',cohort:'March'},
+    {name:'Chuck',cohort:'Jan'},
+    {name:'Osmund',cohort:'June'},
+    {name:'Nikki',cohort:'June'},
+    {name:'Boris',cohort:'June'}
+];
+
+function printStudents(roster){
+    for(let student in roster){
+        let printMe = "Name: " + roster[student].name + ", Cohort: " + roster[student].cohort;
+        console.log(printMe);
+    }
+}
+
+printStudents(students);
+
+//CHALLENGE 2
+let users = {
+    employees: [
+        {'firstName':'Miguel','lastName':'Jones'},
+        {'firstName':'Ernie','lastName':'Bertson'},
+        {'firstName':'Nora','lastName':'Lu'},
+        {'firstName':'Sally','lastName':'Barkyoumb'}
+    ],
+    managers: [
+        {'firstName':'Lilian','lastName':'Chambers'},
+        {'firstName':'Gordon','lastName':'Poe'}
+    ]
+};
+
+function printWorkers(roster){
+    for(let group in roster){ //group in users
+        console.log(group.toUpperCase());
+        for (var i = 0; i < roster[group].length; i++){
+            let output = "";
+            output += (i+1);
+            output += " - ";
+            output += roster[group][i].lastName.toUpperCase();
+            output += ", ";
+            output += roster[group][i].firstName.toUpperCase();
+            output += " - ";
+            output += (roster[group][i].firstName.length + roster[group][i].lastName.length);
+            console.log(output);
+        }
+    }
+}
+
+printWorkers(users);
+</script>

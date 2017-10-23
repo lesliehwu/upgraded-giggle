@@ -1,0 +1,45 @@
+<script>
+var _ = {
+	map: function(arr, func) {
+		let m = [];
+		for(let i = 0; i < arr.length; i++)
+			m.push(func(arr[i]));
+		return m;
+	},
+
+	reduce: function(arr, func) {
+		let r = 0;
+		for(let i = 0; i < arr.length; i++)
+			r += func(arr[i]);
+		return r;
+	},
+
+	find: function(arr, func) {
+		for(let i = 0; i < arr.length; i++){
+			if (func(arr[i])){
+				return arr[i];
+			}
+		}
+	},
+
+	filter: function(arr, func) {
+		let f = [];
+		for (let i = 0; i < arr.length; i++){
+			if (func(arr[i])){
+				f.push(arr[i]);
+			}
+		}
+		return f;
+	},
+
+	reject: function(arr, func) {
+		let r = [];
+		for (let i = 0; i < arr.length; i++){
+			if (!func(arr[i])){
+				r.push(arr[i]);
+			}
+		}
+		return r;
+	}
+}
+</script>

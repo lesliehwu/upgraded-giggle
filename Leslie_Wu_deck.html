@@ -1,0 +1,56 @@
+<script>
+class Card{
+	constructor(suit, rank){
+		this.suit = suit;
+		this.rank = rank;
+	}
+}
+
+function Deck(){
+	let cards = [];
+	let ranks = ['A','2','3','4','5','6','7','8','9',"10",'J','Q','K'];
+	let suits = ['♥','♦','♠','♣'];
+	
+	this.reset = () => {
+		for(let suit of suits){
+			for(let rank of ranks){
+				cards.push(new Card(suit, rank));
+			}
+		}
+	}
+
+	this.shuffle = () => {
+		for(let i = 0; i < cards.length; i++){
+			let random_index = Math.floor(Math.random()*cards.length);
+			let temp = cards[i];
+			cards[i] = cards[random_index];
+			cards[random_index] = temp;
+		}
+	}
+
+	this.deal = () => cards.pop();
+
+	this.reset();
+
+	this.showDeck = () => cards.slice();
+}
+
+
+function Player(name, deck){
+	this.name = name;
+	this.hand = [];
+
+	for (let i = 0; i < 5; i++){
+		this.hand.push(deck.deal());
+	}
+
+	this.take = () => this.hand.push(deck.deal());
+
+	this.discard = (x) => this.hand.pop();
+}
+
+let myDeck = new Deck();
+myDeck.shuffle();
+let playa = new Player('Leslie',myDeck);
+console.log(playa.hand);
+</script>

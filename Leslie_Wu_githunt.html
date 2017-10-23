@@ -1,0 +1,26 @@
+<head>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<button id='belly'>Press Me</button>
+	<div id='addMe'></div>
+</body>
+<script>
+$(document).ready(function(){
+	let button = document.getElementById("belly");
+	let add = "";
+
+	function plsAdd(){
+		$("#addMe").append(add);
+	}
+
+	button.addEventListener("click", plsAdd);
+
+	function displayName(res){
+		add = res.name;
+		console.log(res.name);
+	}
+	
+	$.get("https://api.github.com/users/lesliehwu", displayName, "json");
+})
+</script>

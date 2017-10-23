@@ -1,0 +1,44 @@
+<script>
+//PART I
+//Takes a number and returns a string of that many '*'
+function starString(num){
+	var stars = "";
+	for (var i = 0; i < num; i++){
+		stars += "*";
+	}
+	return stars;
+}
+
+//PART II
+//Takes an array of numbers and prints out '*'
+/*
+function drawStars(arr){
+	for (var i = 0; i < arr.length; i++){
+		console.log(starString(arr[i]));
+	}
+}
+*/
+
+//PART III
+//Takes an array of numbers and strings, prints out '*' for numbers and the .toLowerCase() for string.charAt(0)
+//Modification of Part II
+function drawStars(arr){
+	for (var i = 0; i < arr.length; i++){
+		//Function stays the same if arr[i] is a number
+		if(arr[i].constructor === Number){
+			console.log(starString(arr[i]));
+		}
+		else if(arr[i].constructor === String){
+			//Check to see if arr[i] is a string
+			var printMe = arr[i].charAt(0).toLowerCase();
+			//printMe holds the 'new' asterisk
+			var printString = "";
+			//printString is the 'new' string to print
+			for (var x = 0; x < arr[i].length; x++){
+				printString += printMe;
+			}
+			console.log(printString);
+		}
+	}
+}
+</script>
